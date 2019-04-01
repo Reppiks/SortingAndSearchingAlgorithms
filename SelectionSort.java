@@ -1,15 +1,18 @@
 import java.util.Arrays;
 
-public class SelectionSort {
+public class BubbleSort {
 
+ 
     public static void main(String[] args) {
-        int[] selectionSortArr = randomArray(25);
-        System.out.println("Unsorted Array: " + Arrays.toString(selectionSortArr));
-        selectionSort(selectionSortArr);
-        System.out.println("Sorted Array:   " + Arrays.toString(selectionSortArr));
+        
+        int[] bubbleArr = randomArray(25);
+        System.out.println("Unsorted Array: " + Arrays.toString(bubbleArr));
+        bubbleSort(bubbleArr);
+        System.out.println("Sorted Array:   " + Arrays.toString(bubbleArr));
+        
     }
     
-     /*method creates an unsorted array of pseudo-random numbers. Accepts array
+    /*method creates an unsorted array of pseudo-random numbers. Accepts array
     length as argument
     */
     public static int[] randomArray(int l) { 
@@ -18,23 +21,24 @@ public class SelectionSort {
              result[i] = (int) (Math.random() * 100);
             } 
         return result;
-        
     }
-    public static void selectionSort(int[] arr) {
+    public static void bubbleSort(int[] arr) {
+        boolean swapped = true;
         int n = arr.length;
         int temp;
-        int minIndex;
-        for (int i = 0; i < n - 1; i++ ) {
-            minIndex = i;
-            for (int j = i + 1; j < n; j++) {
-                if (arr[j] < arr[minIndex]) {
-                    minIndex = j;
+         for (int i = 0; i < n - 1; i++) {
+            if (swapped == true) {
+            swapped = false;
+                for (int j = 0; j < n - 1 - i; j++ ){
+                    if (arr[j] > arr[j + 1]) {
+                        temp = arr[j];
+                        arr[j] = arr[j + 1];
+                        arr[j + 1] = temp;
+                        swapped = true;
+                    }             
                 }
-            }    
-                    temp = arr[i];
-                    arr[i] = arr[minIndex];
-                    arr[minIndex] = temp;
-                
+            }
         }
     }
+    
 }
