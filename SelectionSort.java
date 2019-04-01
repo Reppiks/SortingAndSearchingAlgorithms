@@ -8,6 +8,7 @@ public class SelectionSort {
         selectionSort(selectionSortArr);
         System.out.println("Sorted Array:   " + Arrays.toString(selectionSortArr));
     }
+    
      /*method creates an unsorted array of pseudo-random numbers. Accepts array
     length as argument
     */
@@ -17,6 +18,7 @@ public class SelectionSort {
              result[i] = (int) (Math.random() * 100);
             } 
         return result;
+        
     }
     public static void selectionSort(int[] arr) {
         int n = arr.length;
